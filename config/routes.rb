@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :users
 
+  get 'signup', to: 'users#new', as: 'signup'
+
   root 'posts#index'
 end
