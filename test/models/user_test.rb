@@ -25,4 +25,14 @@ class UserTest < ActiveSupport::TestCase
 
     assert_not @user1.valid?
   end
+
+  test "should follow leader" do
+    @user1 = users(:user1)
+    @user2 = users(:user2)
+
+    @user1.follow!(@user2)
+
+    assert_equal 1, @user1.leaders.count
+    assert_equal 1, @user2.followers.count
+  end
 end
