@@ -35,4 +35,13 @@ class UserTest < ActiveSupport::TestCase
     assert_equal 1, @user1.leaders.count
     assert_equal 1, @user2.followers.count
   end
+
+  test "following? should be true" do
+    @user1 = users(:user1)
+    @user2 = users(:user2)
+
+    @user1.follow!(@user2)
+
+    assert @user1.following?(@user2)
+  end
 end
