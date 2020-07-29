@@ -11,4 +11,20 @@ class PostTest < ActiveSupport::TestCase
 
     assert_not @post1.valid?
   end
+
+  test "TextPost requires body" do
+    assert_instance_of TextPost, @post1
+
+    @post1.body = nil
+
+    assert_not @post1.valid?
+  end
+
+  test "ImagePost requires url" do
+    assert_instance_of ImagePost, @post2
+
+    @post2.url = nil
+
+    assert_not @post2.valid?
+  end
 end
