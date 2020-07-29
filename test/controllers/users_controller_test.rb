@@ -19,4 +19,14 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     get root_url
     assert_response :success
   end
+
+  test "should show user" do
+    user1 = users(:user1)
+
+    get user_url(user1)
+    # In Rails 4 this asserted assigns(:user),
+    # no longer possible here.
+    # Should find a replacement check.
+    assert_response :success
+  end
 end
