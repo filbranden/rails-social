@@ -16,4 +16,13 @@ class UserTest < ActiveSupport::TestCase
 
     assert_not @user1.valid?
   end
+
+  test "validates email uniqueness" do
+    @user1 = users(:user1)
+    @user2 = users(:user2)
+
+    @user1.email = @user2.email
+
+    assert_not @user1.valid?
+  end
 end
