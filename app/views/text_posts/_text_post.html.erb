@@ -11,7 +11,7 @@
   <div class="panel-body">
     <p><em>By <%= link_to text_post.user.name, user_path(text_post.user) %></em></p>
 
-    <p><%= text_post.body %></p>
+    <p><%= sanitize text_post.body %></p>
 
     <% if text_post.user == current_user %>
       <p>
