@@ -29,4 +29,15 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     # Should find a replacement check.
     assert_response :success
   end
+
+  test "should follow user" do
+    user1 = users(:user1)
+    user2 = users(:user2)
+
+    login_as user1, 'password'
+
+    get follow_user_url(user2)
+    assert user1.following? user2
+    assert_redirected_to user_url(user2)
+  end
 end
