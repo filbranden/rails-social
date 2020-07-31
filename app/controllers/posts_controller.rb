@@ -8,6 +8,7 @@ class PostsController < ApplicationController
     @posts = Post.includes(:user).where(user_id: user_ids)
                .paginate(page: params[:page], per_page: 5)
                .order("created_at DESC")
+    @posts.each { |post| logger.debug post.inspect }
   end
 
   def show
