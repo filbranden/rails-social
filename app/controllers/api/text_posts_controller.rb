@@ -4,7 +4,7 @@ module Api
 
     def create
       @text_post = @api_user.text_posts.create(text_post_params)
-      render json: @text_post
+      render json: @text_post, status: :created
     end
 
     private
