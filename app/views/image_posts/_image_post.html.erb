@@ -18,7 +18,7 @@
     <p><%= sanitize image_post.body %></p>
 <% end %>
 
-    <p><%= pluralize image_post.cached_comment_count, "Comment" %></p>
+    <p><%= pluralize image_post.comments_count, "Comment" %></p>
 <% end %>
 
     <% if image_post.user == current_user %>
