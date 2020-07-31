@@ -3,8 +3,12 @@ module Api
     before_action :authenticate_token!
 
     def create
-      @text_post = @api_user.text_posts.create(text_post_params)
-      render json: @text_post, status: :created
+      @text_post = @api_user.text_posts.build(text_post_params)
+      if @text_post.save
+        render json: @text_post, status: :created
+      else
+        render json: {errors: @text_post.errors}, status: 422
+      end
     end
 
     private
