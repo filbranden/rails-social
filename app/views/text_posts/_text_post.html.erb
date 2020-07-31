@@ -15,6 +15,7 @@
     <p><%= sanitize text_post.body %></p>
 
     <p><%= pluralize text_post.cached_comment_count, "Comment" %></p>
+<% end %>
 
     <% if text_post.user == current_user %>
       <p>
@@ -24,4 +25,3 @@
     <% end %>
   </div>
 </div>
-<% end %>

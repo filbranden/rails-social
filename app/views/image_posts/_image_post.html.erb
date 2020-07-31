@@ -19,6 +19,7 @@
 <% end %>
 
     <p><%= pluralize image_post.cached_comment_count, "Comment" %></p>
+<% end %>
 
     <% if image_post.user == current_user %>
       <p>
@@ -28,4 +29,3 @@
     <% end %>
   </div>
 </div>
-<% end %>
