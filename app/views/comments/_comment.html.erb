@@ -1,4 +1,8 @@
 <p>
   <em><%= comment.user.name %> said:</em><br>
   <%= comment.body %>
+  <% if @can_moderate %>
+    <br><%= link_to 'Delete', comment_path(comment),
+              method: :delete, class: "btn btn-default" %>
+  <% end %>
 </p>
