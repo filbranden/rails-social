@@ -15,7 +15,7 @@ class UserFlowTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_equal '/', path
 
-    get '/logout'
+    delete '/logout'
     follow_redirect!
     assert_equal '/', path
     follow_redirect!
