@@ -17,6 +17,8 @@
     <p><%= sanitize image_post.body %></p>
 <% end %>
 
+    <p><%= pluralize image_post.comments.count, "Comment" %></p>
+
     <% if image_post.user == current_user %>
       <p>
       <%= link_to 'Edit', edit_image_post_path(image_post),

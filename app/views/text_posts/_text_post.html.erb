@@ -13,6 +13,8 @@
 
     <p><%= sanitize text_post.body %></p>
 
+    <p><%= pluralize text_post.comments.count, "Comment" %></p>
+
     <% if text_post.user == current_user %>
       <p>
       <%= link_to 'Edit', edit_text_post_path(text_post),
