@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   #   $ bin/rails console
   #   irb(main):001:0> RailsSocial::Application::config.action_controller.default_protect_from_forgery
   #   => true
+  protect_from_forgery with: :null_session
 
   private
 
@@ -20,5 +21,11 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     redirect_to login_path unless current_user
+  end
+
+  def authenticate_token!
+    authenticate_or_request_with_http_token do |token, options|
+      @api_user = User.find_by(api_token: token)
+    end
   end
 end
