@@ -13,7 +13,7 @@
 
     <p><%= sanitize text_post.body %></p>
 
-    <p><%= pluralize text_post.comments.count, "Comment" %></p>
+    <p><%= pluralize text_post.cached_comment_count, "Comment" %></p>
 
     <% if text_post.user == current_user %>
       <p>
